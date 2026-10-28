@@ -1,2 +1,1 @@
-# IG_Semana_6_7
-Created with CodeSandbox
+# mis-assets-starwars

@@ -36,7 +36,7 @@ window.r2d2Viewer = new R2D2Viewer("r2d2-canvas-container");
 
 const clock = new THREE.Clock();
 
-// Cargar X-Wing desde CDN
+// Cargar X-Wing
 loadXWing(scene).then((loadedXWing) => {
   xwingMesh = loadedXWing;
   cameraController = new CameraController(scene, camera, renderer, controls, xwingMesh);

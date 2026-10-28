@@ -1,5 +1,11 @@
 import * as THREE from "three";
 import { PLANET_DATA } from "../config/planetData.js";
+import sunTextureImg from '../assets/textures/sun_map.jpg';
+import txCloudsImg from '../assets/textures/earthcloudmaptrans.jpg';
+import txCloudsAlphaImg from '../assets/textures/earthcloudmaptrans_invert.jpg';
+import tatooineTextureImg from '../assets/textures/tatooine_map.jpg';
+import tatooineMoonTextureImg from '../assets/textures/endor_moon_map.jpg';
+import endorMoonTextureImg from '../assets/textures/endor_moon_map.jpg';
 
 const textureLoader = new THREE.TextureLoader();
 
@@ -7,18 +13,15 @@ export function createSolarSystem(scene) {
   const planetMeshes = [];
   const satelliteMeshes = [];
 
-  // 1. SOL CENTRAL + CORONA SOLAR (CAPA DE FUEGO)
-  const sunTexture = textureLoader.load("src/assets/textures/sun_map.jpg");
+  const sunTexture = textureLoader.load(sunTextureImg);
   const sunGeo = new THREE.SphereGeometry(7, 32, 32);
   const sunMat = new THREE.MeshBasicMaterial({ map: sunTexture });
   const sunMesh = new THREE.Mesh(sunGeo, sunMat);
-  // 1. Cargamos las dos texturas de nubes (la del mapa y la del mapa de transparencia invertido)
-  const txClouds = textureLoader.load("src/assets/textures/earthcloudmaptrans.jpg");
-  const txCloudsAlpha = textureLoader.load("src/assets/textures/earthcloudmaptrans_invert.jpg");
+  const txClouds = textureLoader.load(txCloudsImg);
+  const txCloudsAlpha = textureLoader.load(txCloudsAlphaImg);
   sunMesh.name = "Sol Central";
   scene.add(sunMesh);
 
-  // Capa exterior de Fuego / Corona Solar
   const fireGeo = new THREE.SphereGeometry(7.5, 32, 32);
   const fireMat = new THREE.MeshBasicMaterial({
     map: sunTexture,
@@ -31,22 +34,19 @@ export function createSolarSystem(scene) {
   sunFireMesh.name = "sun_fire";
   sunMesh.add(sunFireMesh);
 
-  // 2. SISTEMA BINARIO TATOOINE ANIMADO
   const tatooineSystem = createTatooineSystem(scene);
 
-  // 3. GENERACIÓN DE PLANETAS Y SATÉLITES
   PLANET_DATA.forEach((data) => {
     const planetGroup = new THREE.Group();
     scene.add(planetGroup);
   
     const texture = textureLoader.load(data.texture);
     const geometry = new THREE.SphereGeometry(data.radius, 32, 32);
-  
-    // En planetBuilder.js, al crear el material del planeta:
+ 
     const material = new THREE.MeshPhongMaterial({
       map: texture,
       color: data.planetColor || 0xffffff,
-      emissive: data.id === "mustafar" ? 0xff2200 : 0x000000, // Hace que Mustafar brille en rojo intenso
+      emissive: data.id === "mustafar" ? 0xff2200 : 0x000000,
       emissiveIntensity: data.id === "mustafar" ? 0.6 : 0,
       bumpMap: texture,
       bumpScale: data.bumpScale || 0.4,
@@ -62,14 +62,12 @@ export function createSolarSystem(scene) {
     planetGroup.add(planetMesh);
     planetMeshes.push(planetMesh);
 
-    // 2. Generación de Nubes / Cenizas
     if (data.clouds) {
       const cloudGeo = new THREE.SphereGeometry(data.radius * 1.025, 40, 40);
 
       let cloudMat;
 
       if (data.isAshCloud) {
-        // Para Mustafar: Ceniza volcánica oscura
         cloudMat = new THREE.MeshStandardMaterial({
           map: txClouds,
           alphaMap: txCloudsAlpha,
@@ -80,14 +78,13 @@ export function createSolarSystem(scene) {
           depthWrite: false
         });
       } else {
-        // Nubes Blancas Brillantes Puras (Naboo, Hoth, etc.)
         cloudMat = new THREE.MeshBasicMaterial({
-          map: txCloudsAlpha,          // Usamos el mapa alpha para extraer la forma blanca limpia
+          map: txCloudsAlpha,          
           alphaMap: txCloudsAlpha,
-          color: 0xffffff,             // Blanco puro
+          color: 0xffffff,             
           transparent: true,
           opacity: 0.7,
-          blending: THREE.AdditiveBlending, // Suma la luz convirtiendo cualquier borde en blanco brillante
+          blending: THREE.AdditiveBlending, 
           side: THREE.DoubleSide,
           depthWrite: false
         });
@@ -97,8 +94,7 @@ export function createSolarSystem(scene) {
       cloudMesh.name = `${data.id}_clouds`;
       planetMesh.add(cloudMesh);
     }
-      
-    // 3. SATÉLITES / LUNAS
+
     if (data.hasSatellites && data.satellites) {
       data.satellites.forEach((satData) => {
         const satPivot = new THREE.Group();
@@ -136,7 +132,6 @@ function createOrbitLine(scene, radiusX, radiusY) {
   scene.add(new THREE.Line(geometry, material));
 }
 
-// Dentro de createTatooineSystem(scene):
 function createTatooineSystem(scene) {
   const tatooinePivot = new THREE.Group();
   scene.add(tatooinePivot);
@@ -145,17 +140,15 @@ function createTatooineSystem(scene) {
   tatooineGroup.position.set(-260, 50, -300);
   tatooinePivot.add(tatooineGroup);
 
-  const sunTex = textureLoader.load("src/assets/textures/sun_map.jpg");
+  const sunTex = textureLoader.load(sunTextureImg);
   const sunPivot = new THREE.Group();
   tatooineGroup.add(sunPivot);
 
-  // Sol 1 + Capa de Fuego
   const sun1 = new THREE.Mesh(new THREE.SphereGeometry(5, 16, 16), new THREE.MeshBasicMaterial({ map: sunTex, color: 0xffaa00 }));
   const sun1Fire = new THREE.Mesh(new THREE.SphereGeometry(5.4, 16, 16), new THREE.MeshBasicMaterial({ map: sunTex, color: 0xff6600, transparent: true, opacity: 0.4, blending: THREE.AdditiveBlending }));
   sun1.add(sun1Fire);
   sun1.position.set(-7, 0, 0);
 
-  // Sol 2 + Capa de Fuego
   const sun2 = new THREE.Mesh(new THREE.SphereGeometry(3.2, 16, 16), new THREE.MeshBasicMaterial({ map: sunTex, color: 0xff3300 }));
   const sun2Fire = new THREE.Mesh(new THREE.SphereGeometry(3.5, 16, 16), new THREE.MeshBasicMaterial({ map: sunTex, color: 0xff1100, transparent: true, opacity: 0.4, blending: THREE.AdditiveBlending }));
   sun2.add(sun2Fire);
@@ -164,14 +157,11 @@ function createTatooineSystem(scene) {
   sunPivot.add(sun1);
   sunPivot.add(sun2);
 
-  // Tatooine + Capa de Tormenta de Arena
-  const tatTex = textureLoader.load("src/assets/textures/tatooine_map.jpg");
+  const tatTex = textureLoader.load(tatooineTextureImg);
   const tatooine = new THREE.Mesh(new THREE.SphereGeometry(3, 24, 24), new THREE.MeshPhongMaterial({ map: tatTex, bumpMap: tatTex, bumpScale: 0.3 }));
 
-  // Dentro de createTatooineSystem(scene), tras definir 'tatooine':
-  const tatMoonTex = textureLoader.load("src/assets/textures/endor_moon_map.jpg");
+  const tatMoonTex = textureLoader.load(tatooineMoonTextureImg);
 
-  // Lunas de Tatooine: Ghomrassen, Guermessa y Chenini
   const moonsData = [
     { name: "Ghomrassen", dist: 5.0, radius: 0.25, speed: 0.03, color: 0xd2b48c },
     { name: "Guermessa", dist: 6.5, radius: 0.2, speed: 0.02, color: 0xaaaaaa },
@@ -188,12 +178,11 @@ function createTatooineSystem(scene) {
     mMesh.position.x = m.dist;
     pivot.add(mMesh);
   });
-    
-  // Capa de tormenta de arena
+
   const sandStormGeo = new THREE.SphereGeometry(3.08, 24, 24);
   const sandStormMat = new THREE.MeshPhongMaterial({
-    map: textureLoader.load("src/assets/textures/endor_moon_map.jpg"),
-    color: 0xd2b48c, // Tono arena / café claro
+    map: textureLoader.load(endorMoonTextureImg),
+    color: 0xd2b48c,
     transparent: true,
     opacity: 0.5,
     blending: THREE.AdditiveBlending

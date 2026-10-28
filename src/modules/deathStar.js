@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { soundManager } from "./soundManager.js";
 
-const CDN_BASE = "https://raw.githubusercontent.com/studies-ulpgc/mis-assets-starwars/main/";
+const CDN_BASE = "https://raw.githubusercontent.com/studies-ulpgc/IG/main/3D_models/";
 
 export class DeathStarManager {
   constructor(scene) {
@@ -15,7 +15,6 @@ export class DeathStarManager {
 
     this.loadModels();
 
-    // Superláser Verde
     this.laserLine = this.createLaserBeam();
     this.scene.add(this.laserLine);
 
@@ -23,7 +22,6 @@ export class DeathStarManager {
   }
 
   loadModels() {
-    // 1. Estrella de la Muerte I (Episodio IV)
     this.loader.load(
       `${CDN_BASE}death_star.glb`,
       (gltf) => {
@@ -37,7 +35,6 @@ export class DeathStarManager {
       (err) => console.warn("Error cargando death_star.glb:", err)
     );
 
-    // 2. Estrella de la Muerte II (Episodio VI)
     this.loader.load(
       `${CDN_BASE}death_star_ii.glb`,
       (gltf) => {

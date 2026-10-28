@@ -1,15 +1,12 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-// CDN de jsDelivr apuntando a tu repositorio de GitHub
-const CDN_BASE = "https://cdn.jsdelivr.net/gh/studies-ulpgc/mis-assets-starwars@main/";
+const CDN_BASE = "https://cdn.jsdelivr.net/gh/studies-ulpgc/IG@main/3D_models/";
 
 export function loadXWing(scene) {
   return new Promise((resolve) => {
     const loader = new GLTFLoader();
 
-    // Intentamos cargar el archivo .glb desde la CDN
-    // Si tu archivo se llama diferente en GitHub, cambia 'x_wing_fighter.glb' por el nombre exacto
     const modelUrl = `${CDN_BASE}x_wing_fighter.glb`;
 
     console.log("Intentando cargar X-Wing desde:", modelUrl);
@@ -19,17 +16,14 @@ export function loadXWing(scene) {
       (gltf) => {
         const xwing = gltf.scene;
 
-        // Ajustamos escala y posición inicial
         xwing.scale.set(0.2, 0.2, 0.2); 
         xwing.position.set(0, 5, 45);
 
-        // Habilitamos sombras para todas las mallas del modelo
         xwing.traverse((child) => {
           if (child.isMesh) {
             child.castShadow = true;
             child.receiveShadow = true;
-            
-            // Forzamos a que el material responda a la luz si venía sin textura
+
             if (child.material) {
               child.material.side = THREE.DoubleSide;
             }
@@ -48,8 +42,7 @@ export function loadXWing(scene) {
       },
       (error) => {
         console.warn("No se pudo cargar el GLB desde la URL base. Probando alternativa o activando fallback:", error);
-        
-        // Si el archivo en tu GitHub se llama distinto (por ejemplo xwing.glb o XWing.glb), probamos una segunda opción:
+
         loader.load(
           `${CDN_BASE}xwing.glb`,
           (gltf2) => {
@@ -62,7 +55,6 @@ export function loadXWing(scene) {
           },
           undefined,
           () => {
-            // Si falla la segunda ruta, usamos la figura básica estilizada
             const fallbackGroup = createFallbackXWing();
             scene.add(fallbackGroup);
             resolve(fallbackGroup);

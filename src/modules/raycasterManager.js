@@ -98,7 +98,6 @@ export class InteractionManager {
 
       this.raycaster.setFromCamera(this.mouse, this.camera);
 
-      // PRIORIDAD 1: Recopilar todos los objetos clickeables
       const clickables = [...this.planetMeshes.filter((p) => p.visible)];
 
       if (this.sunMesh) clickables.push(this.sunMesh);
@@ -113,8 +112,7 @@ export class InteractionManager {
 
       if (intersects.length > 0) {
         let hitObj = intersects[0].object;
-        
-        // Subir al ancestro si tocamos nubes o satélites
+
         while (hitObj.parent && !hitObj.userData.name && hitObj !== this.sunMesh && hitObj !== activeDS) {
           hitObj = hitObj.parent;
         }
@@ -147,7 +145,6 @@ export class InteractionManager {
 
     this.updateDataFields(data.name, data.lore, data.region, data.climate);
 
-    // Habilitar botón de disparo solo para planetas destruibles
     if (this.destroyBtn) this.destroyBtn.style.display = "inline-block";
 
     this.navPanel.classList.remove("hidden");
@@ -163,7 +160,6 @@ export class InteractionManager {
 
     this.updateDataFields(name, lore, region, climate);
 
-    // Ocultar botón de disparar para Tatooine, Sol o Estrella de la Muerte
     if (this.destroyBtn) this.destroyBtn.style.display = canDestroy ? "inline-block" : "none";
 
     this.navPanel.classList.remove("hidden");
@@ -194,7 +190,6 @@ export class InteractionManager {
     this.controls.update();
   }
 
-  // PRIORIDAD 2: "Más Info" oculta la barra flotante original por completo
   showDetailedInfo() {
     if (!this.selectedObject) return;
     this.isShowingMoreInfo = true;
@@ -202,19 +197,18 @@ export class InteractionManager {
     const radius = this.selectedObject.userData.radius || 3;
     this.focusObjectFront(this.selectedObject, radius);
 
-    this.navPanel.classList.add("hidden"); // Oculta la barra original
-    this.infoPanel.classList.remove("hidden"); // Muestra la ficha con R2D2
+    this.navPanel.classList.add("hidden"); 
+    this.infoPanel.classList.remove("hidden"); 
 
     if (window.r2d2Viewer) {
       window.r2d2Viewer.resize();
     }
   }
 
-  // Cierre limpio: Se ocultan ambos paneles sin hacer reaparecer la barra previa
   hideDetailedInfo() {
     this.isShowingMoreInfo = false;
     this.infoPanel.classList.add("hidden");
-    this.navPanel.classList.add("hidden"); // Se mantiene limpia la pantalla
+    this.navPanel.classList.add("hidden"); 
     this.deselectAll();
   }
 
