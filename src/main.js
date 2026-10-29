@@ -68,10 +68,18 @@ const toggleUiBtn = document.getElementById("toggle-ui-btn");
 
 toggleUiBtn.addEventListener("click", () => {
   uiPanel.classList.toggle("collapsed");
-  toggleUiBtn.innerText = uiPanel.classList.contains("collapsed")
-    ? "▲ PANEL DE CONTROL ▲"
-    : "▼ OCULTAR PANEL ▼";
+  toggleUiBtn.innerText = uiPanel.classList.contains("collapsed") ? "▲" : "▼";
 });
+
+// Lógica de Modal de Ayuda (Help)
+const helpBtn = document.getElementById("help-btn");
+const helpModal = document.getElementById("help-modal");
+const closeHelpBtn = document.getElementById("close-help-btn");
+
+if (helpBtn && helpModal) {
+  helpBtn.addEventListener("click", () => helpModal.classList.remove("hidden"));
+  closeHelpBtn.addEventListener("click", () => helpModal.classList.add("hidden"));
+}
 
 // Bucle de Animación principal
 let t0 = Date.now();
@@ -85,6 +93,10 @@ function animationLoop() {
 
   if (cameraController) cameraController.update(delta);
   if (deathStarManager) deathStarManager.update();
+
+  if (interactionManager && xwingMesh) {
+    interactionManager.checkXWingProximity(xwingMesh);
+  }
 
   // Animación del Sol Central y Fuego Solar
   if (sunMesh) {

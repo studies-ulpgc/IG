@@ -5,20 +5,6 @@ import coruscantTextureImg from '../assets/textures/coruscant_map.jpg';
 import endorTextureImg from '../assets/textures/endor_map.jpg';
 import bespinTextureImg from '../assets/textures/bespin_map.jpg';
 import endorMoonTextureImg from '../assets/textures/endor_moon_map.jpg';
-import ohmaDunTextureImg from '../assets/textures/endor_moon_map.jpg';
-import verunaTextureImg from '../assets/textures/endor_moon_map.jpg';
-import roriTextureImg from '../assets/textures/endor_moon_map.jpg';
-import jetbaTextureImg from '../assets/textures/endor_moon_map.jpg';
-import lefraniTextureImg from '../assets/textures/endor_moon_map.jpg';
-import centax1TextureImg from '../assets/textures/endor_moon_map.jpg';
-import centax2TextureImg from '../assets/textures/endor_moon_map.jpg';
-import centax3TextureImg from '../assets/textures/endor_moon_map.jpg';
-import hesperidiumTextureImg from '../assets/textures/endor_moon_map.jpg';
-import hratthTextureImg from '../assets/textures/endor_moon_map.jpg'; 
-import miserTextureImg from '../assets/textures/endor_moon_map.jpg';
-import bSub1TextureImg from '../assets/textures/endor_moon_map.jpg';
-import bSub2TextureImg from '../assets/textures/endor_moon_map.jpg';
-import bSub3TextureImg from '../assets/textures/endor_moon_map.jpg';  
 
 export const PLANET_DATA = [
   {
