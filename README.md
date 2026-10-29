@@ -1,3 +1,15 @@
+
+
+https://github.com/user-attachments/assets/d26dd045-51e7-4f29-96cd-d0dfec6bf0ab
+
+
+
+https://github.com/user-attachments/assets/f08b5b4a-96ed-420f-ac11-bc05c241af48
+
+
+
+https://github.com/user-attachments/assets/3ecd90e3-5b56-4661-a736-08bba8085819
+
 <div align="center">
 
 <img src="readme_media/assets/ulpgc.svg" alt="Escudo ULPGC" width="160" />
@@ -80,6 +92,8 @@ En esta sección se presentan los vídeos demostrativos de la aplicación, estru
 En este modo de visualización, la cámara orbita libremente alrededor del centro del sistema galáctico mediante controles orbitales interactivos.
 
 <video src="https://raw.githubusercontent.com/studies-ulpgc/IG_S6-7/main/readme_media/demos/01_vista_general.mp4" controls style="max-width: 100%;"></video>
+
+
 
 **Funcionalidades mostradas:**
 - **Control orbital libre:** Rotación de cámara en 360°, desplazamiento panorámico y zoom mediante el ratón.
