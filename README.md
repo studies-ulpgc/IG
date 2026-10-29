@@ -1,3 +1,5 @@
+
+
 <div align="center">
 
 <img src="readme_media/assets/ulpgc.svg" alt="Escudo ULPGC" width="160" />
@@ -81,8 +83,6 @@ En este modo de visualización, la cámara orbita libremente alrededor del centr
 
 https://github.com/user-attachments/assets/3ecd90e3-5b56-4661-a736-08bba8085819
 
-
-
 **Funcionalidades mostradas:**
 - **Control orbital libre:** Rotación de cámara en 360°, desplazamiento panorámico y zoom mediante el ratón.
 - **Conmutación de rejilla:** Activación y desactivación en tiempo real del asistente plano (*GridHelper*) desde el botón "Rejilla" del Datapad.
@@ -114,7 +114,7 @@ Muestra la interacción por proyección de rayos (*raycasting*) para identificar
 > [!NOTE]
 > **Vídeo con audio:** Contiene los efectos sonoros del disparo del superláser y la detonación del astro.
 
-<video src="readme_media/demos/03_destruccion_estrella_muerte.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/c2f8dfa3-b8a8-4df7-87b0-c48efa6fc217
 
 **Funcionalidades mostradas:**
 - **Inmovilización del objetivo:** Al iniciar la secuencia de disparo, el planeta congelará inmediatamente su movimiento de traslación en el espacio para permitir el impacto directo del rayo.
@@ -127,7 +127,7 @@ Muestra la interacción por proyección de rayos (*raycasting*) para identificar
 
 Demostración de la conmutación de modelos tridimensionales en tiempo real para representar la estación espacial en su fase de construcción (Episodio VI).
 
-<video src="readme_media/demos/06_estrella_muerte_2.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/348eb0c2-d7de-4275-8d51-31c2cdbaaa69
 
 **Funcionalidades mostradas:**
 - **Intercambio dinámico de geometrías:** Sustitución asíncrona del modelo `.glb` de la Estrella de la Muerte por el modelo de la Estrella de la Muerte II sin reiniciar la escena.
@@ -139,7 +139,7 @@ Demostración de la conmutación de modelos tridimensionales en tiempo real para
 
 Demostración de la gestión de inventario de astros tras ser eliminados de la escena.
 
-<video src="readme_media/demos/04_restauracion_planetas.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/e29f9b74-e8b7-4193-9584-443b99cc6ccc
 
 **Funcionalidades mostradas:**
 - **Desplegable dinámico:** La lista de selección "Restaurar Planeta" en el Datapad se actualiza automáticamente añadiendo solo los planetas que hayan sido destruidos.
@@ -152,7 +152,7 @@ Demostración de la gestión de inventario de astros tras ser eliminados de la e
 
 Cambio de perspectiva hacia la vista subjetiva en tercera persona para pilotar la caza X-Wing por el espacio tridimensional.
 
-<video src="readme_media/demos/05_modo_xwing_proximidad.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/fdfa2066-8abf-4432-906c-7f3349a2c45b
 
 **Funcionalidades mostradas:**
 - **Panel de Ayuda (`?`):** Ventana emergente (*modal*) con la guía completa de controles de vuelo (W, A, S, D, Q, E).
