@@ -79,7 +79,7 @@ En esta sección se presentan los vídeos demostrativos de la aplicación, estru
 
 En este modo de visualización, la cámara orbita libremente alrededor del centro del sistema galáctico mediante controles orbitales interactivos.
 
-<video src="readme_media/demos/01_vista_general.mp4" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/studies-ulpgc/IG_S6-7/main/readme_media/demos/01_vista_general.mp4" controls style="max-width: 100%;"></video>
 
 **Funcionalidades mostradas:**
 - **Control orbital libre:** Rotación de cámara en 360°, desplazamiento panorámico y zoom mediante el ratón.
