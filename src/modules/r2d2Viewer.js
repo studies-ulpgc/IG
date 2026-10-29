@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-const CDN_BASE = "https://cdn.jsdelivr.net/gh/studies-ulpgc/IG@main/3D_models/";
+const CDN_BASE = "https://cdn.jsdelivr.net/gh/studies-ulpgc/IG_S6-7@main/3D_models/";
 
 export class R2D2Viewer {
   constructor(containerId) {
