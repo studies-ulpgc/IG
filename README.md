@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="readme_media/assets/ulpgc.svg" alt="Escudo ULPGC" width="160" />
+<img src="readme_media/assets/ulpgc.png" alt="Escudo ULPGC" width="160" />
 
 ### UNIVERSIDAD DE LAS PALMAS DE GRAN CANARIA
 **Grado en Ingeniería Informática — Asignatura: Informática Gráfica**  
@@ -97,7 +97,7 @@ Al seleccionar cualquier cuerpo celeste con el puntero, se activa el sistema de 
 > [!NOTE]
 > **Vídeo con audio:** Incluye sonidos originales del androide R2-D2 al seleccionar o conmutar de planeta.
 
-<video src="readme_media/demos/02_paneles_informacion.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/7232c754-d72b-4ae2-a820-470d11ca77d5
 
 **Funcionalidades mostradas:**
 - **Barra flotante de resumen:** Muestra el nombre del planeta seleccionado con opciones rápidas de acción.
