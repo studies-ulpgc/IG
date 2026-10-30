@@ -201,12 +201,12 @@ En esta sección se detalla la estructura modular de archivos del proyecto y la 
 
 ### 5.1. Estructura de Módulos y Organización de Archivos
 
-<pre><code><b>IG_Semana_6_7/</b>
+<pre><b>IG_Semana_6_7/</b>
 ├── <a href="./3D_models/">3D_models/</a>                     # Modelos tridimensionales en formato .glb
-│   ├── <a href="./3D_models/Death_Star.glb">Death_Star.glb</a>            # Modelo Estrella de la Muerte (Episodio IV)
-│   ├── <a href="./3D_models/Death_Star_II.glb">Death_Star_II.glb</a>         # Modelo Estrella de la Muerte II (Episodio VI)
-│   ├── <a href="./3D_models/XWing.glb">XWing.glb</a>                 # Modelo caza estelar X-Wing
-│   └── <a href="./3D_models/R2D2.glb">R2D2.glb</a>                  # Modelo androide R2-D2
+│   ├── <a href="./3D_models/death_star.glb">death_star.glb</a>            # Modelo Estrella de la Muerte (Episodio IV)
+│   ├── <a href="./3D_models/death_star_ii.glb">Death_Star_II.glb</a>         # Modelo Estrella de la Muerte II (Episodio VI)
+│   ├── <a href="./3D_models/x-wing-fighter.glb">x-wing-fighter.glb</a>                 # Modelo caza estelar X-Wing
+│   └── <a href="./3D_models/r2d2.glb">r2d2.glb</a>                  # Modelo androide R2-D2
 ├── <a href="./readme_media/">readme_media/</a>                 # Recursos multimedia de la documentación
 │   ├── <a href="./readme_media/assets/">assets/</a>                   # Logotipo institucional
 │   ├── <a href="./readme_media/demos/">demos/</a>                    # Vídeos demostrativos
@@ -228,7 +228,7 @@ En esta sección se detalla la estructura modular de archivos del proyecto y la 
 │   └── <a href="./src/styles.css">styles.css</a>                # Hojas de estilo de la interfaz
 ├── <a href="./package.json">package.json</a>                  # Configuración del proyecto y dependencias
 └── <a href="./README.md">README.md</a>                     # Documentación principal
-</code></pre>
+</pre>
 
 ---
 
@@ -241,14 +241,14 @@ Correspondencia técnica entre los ejemplos de clase ([`otsedom`](https://github
 
 | Script de Referencia | Concepto Base | Aplicación en el Proyecto |
 | :--- | :--- | :--- |
-| **`script01` / `script02`** | Grafo de escena, cámara, renderizador y geometrías primitivas. | Configurado en `sceneSetup.js` con soporte para sombras y adaptación a pantalla. |
-| **`script03` / `script04`** | Asistente `GridHelper` y eventos DOM. | Integrado en el panel de control mediante el botón "Rejilla" para alternar su visibilidad. |
-| **`script06` / `script07`** | Traslación orbital elíptica con `Math.cos` / `Math.sin` y marcas de tiempo. | Incluido en el bucle `animationLoop()` (`main.js`) para mover los planetas a distintas velocidades. |
-| **`script07`** | Jerarquía de pivotes (`Object3D`) y trazado de órbitas. | Organizado en `planetBuilder.js` para los pivotes de las 18 lunas y sus líneas orbitales (`LineLoop`). |
-| **`script08`** | Selección de objetos mediante `Raycaster`. | Gestionado en `raycasterManager.js` para hacer clic sobre los planetas, soles y la Estrella de la Muerte. |
-| **`script11` / `script12`** | Luces, sombras y materiales Phong (`bumpMap`, `shininess`). | Iluminación de la escena con sombras en las naves y texturas con relief en los planetas. |
-| **`script13` / `script15`** | Carga de texturas y nubes con transparencias (`alphaMap`). | Aplicado en los planetas y el Sol, reutilizando mapas de nubes para ajustar la opacidad. |
-| **`script16`** | Control de cámara tipo vuelo (`FlyControls`). | Implementado en `controlsManager.js` como un controlador de vuelo suave para la X-Wing. |
+| **[`script01`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script02`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Grafo de escena, cámara, renderizador y geometrías primitivas. | Configurado en [`src/modules/sceneSetup.js`](./src/modules/sceneSetup.js) con soporte para sombras y adaptación a pantalla. |
+| **[`script03`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script04`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Asistente `GridHelper` y eventos DOM. | Integrado en el panel de control mediante el botón "Rejilla" para alternar su visibilidad. |
+| **[`script06`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script07`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Traslación orbital elíptica con `Math.cos` / `Math.sin` y marcas de tiempo. | Incluido en el bucle `animationLoop()` ([`src/main.js`](./src/main.js)) para mover los planetas a distintas velocidades. |
+| **[`script07`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Jerarquía de pivotes (`Object3D`) y trazado de órbitas. | Organizado en [`src/modules/planetBuilder.js`](./src/modules/planetBuilder.js) para los pivotes de las 18 lunas y sus líneas orbitales (`LineLoop`). |
+| **[`script08`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Selección de objetos mediante `Raycaster`. | Gestionado en [`src/modules/raycasterManager.js`](./src/modules/raycasterManager.js) para hacer clic sobre los planetas, soles y la Estrella de la Muerte. |
+| **[`script11`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq) / [`script12`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Luces, sombras y materiales Phong (`bumpMap`, `shininess`). | Iluminación de la escena con sombras en las naves y texturas con relieve en los planetas. |
+| **[`script13`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq) / [`script15`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Carga de texturas y nubes con transparencias (`alphaMap`). | Aplicado en los planetas y el Sol, reutilizando mapas de nubes para ajustar la opacidad. |
+| **[`script16`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Control de cámara tipo vuelo (`FlyControls`). | Implementado en [`src/modules/controlsManager.js`](./src/modules/controlsManager.js) como un controlador de vuelo suave para la X-Wing. |
 
 ---
 
@@ -286,10 +286,10 @@ Correspondencia técnica entre los ejemplos de clase ([`otsedom`](https://github
 
 | Modelo 3D | Archivo Local | Creador / Autor | Enlace en Sketchfab |
 | :--- | :--- | :--- | :--- |
-| **Estrella de la Muerte (Ep. IV)** | [`Death_Star.glb`](./3D_models/Death_Star.glb) | SebastianSosnowski | [Sketchfab - Death Star](https://sketchfab.com/3d-models/death-star-star-wars-3d5f01485e9e4e8b9d995d7764341afe) |
-| **Estrella de la Muerte II (Ep. VI)** | [`Death_Star_II.glb`](./3D_models/Death_Star_II.glb) | N8 | [Sketchfab - Death Star II](https://sketchfab.com/3d-models/death-star-ii-17ccca0dbb6b4e338fa999202f9e6685) |
-| **Caza Estelar X-Wing** | [`XWing.glb`](./3D_models/XWing.glb) | Heataker | [Sketchfab - Star Wars X-Wing Fighter](https://sketchfab.com/3d-models/star-wars-x-wing-fighter-e6b85951f85940c1b26505eda7d73ef9) |
-| **Androide R2-D2** | [`R2D2.glb`](./3D_models/R2D2.glb) | Eduardo Oliveira | [Sketchfab - R2D2](https://sketchfab.com/3d-models/r2d2-e9eca957d4224766b45c5ace176e13be) |
+| **Estrella de la Muerte (Ep. IV)** | [`death_star.glb`](./3D_models/death_star.glb) | SebastianSosnowski | [Sketchfab - Death Star](https://sketchfab.com/3d-models/death-star-star-wars-3d5f01485e9e4e8b9d995d7764341afe) |
+| **Estrella de la Muerte II (Ep. VI)** | [`death_star_ii.glb`](./3D_models/death_star_ii.glb) | N8 | [Sketchfab - Death Star II](https://sketchfab.com/3d-models/death-star-ii-17ccca0dbb6b4e338fa999202f9e6685) |
+| **Caza Estelar X-Wing** | [`x-wing-fighter.glb`](./3D_models/x-wing-fighter.glb) | Heataker | [Sketchfab - Star Wars X-Wing Fighter](https://sketchfab.com/3d-models/star-wars-x-wing-fighter-e6b85951f85940c1b26505eda7d73ef9) |
+| **Androide R2-D2** | [`r2d2.glb`](./3D_models/r2d2.glb) | Eduardo Oliveira | [Sketchfab - R2D2](https://sketchfab.com/3d-models/r2d2-e9eca957d4224766b45c5ace176e13be) |
 
 ---
 
