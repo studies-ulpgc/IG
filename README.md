@@ -236,6 +236,7 @@ En esta sección se detalla la estructura modular de archivos del proyecto y la 
 
 Correspondencia técnica entre los ejemplos de clase ([`otsedom`](https://github.com/otsedom)) y su implementación en el proyecto:
 
+- **Entorno CodeSandbox del Proyecto:** [Probar Proyecto en Sandbox](https://codesandbox.io/p/sandbox/github/studies-ulpgc/IG_S6-7)
 - **CodeSandbox Semana 6:** [ig-s6-xtdjrm](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)
 - **CodeSandbox Semana 7:** [ig-s7-36r8mq](https://codesandbox.io/p/sandbox/ig-s7-36r8mq?file=%2Fsrc%2Findex.html)
 
