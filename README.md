@@ -241,14 +241,14 @@ Correspondencia técnica entre los ejemplos de clase ([`otsedom`](https://github
 
 | Script de Referencia | Concepto Base | Aplicación en el Proyecto |
 | :--- | :--- | :--- |
-| **[`script01`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script02`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Grafo de escena, cámara, renderizador y geometrías primitivas. | Configurado en [`src/modules/sceneSetup.js`](./src/modules/sceneSetup.js) con soporte para sombras y adaptación a pantalla. |
+| **[`script01`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script02`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Grafo de escena, cámara, renderizador y geometrías primitivas. | Configurado en [`sceneSetup.js`](./src/modules/sceneSetup.js) con soporte para sombras y adaptación a pantalla. |
 | **[`script03`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script04`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Asistente `GridHelper` y eventos DOM. | Integrado en el panel de control mediante el botón "Rejilla" para alternar su visibilidad. |
-| **[`script06`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script07`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Traslación orbital elíptica con `Math.cos` / `Math.sin` y marcas de tiempo. | Incluido en el bucle `animationLoop()` ([`src/main.js`](./src/main.js)) para mover los planetas a distintas velocidades. |
-| **[`script07`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Jerarquía de pivotes (`Object3D`) y trazado de órbitas. | Organizado en [`src/modules/planetBuilder.js`](./src/modules/planetBuilder.js) para los pivotes de las 18 lunas y sus líneas orbitales (`LineLoop`). |
-| **[`script08`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Selección de objetos mediante `Raycaster`. | Gestionado en [`src/modules/raycasterManager.js`](./src/modules/raycasterManager.js) para hacer clic sobre los planetas, soles y la Estrella de la Muerte. |
+| **[`script06`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script07`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Traslación orbital elíptica con `Math.cos` / `Math.sin` y marcas de tiempo. | Incluido en el bucle `animationLoop()` ([`main.js`](./src/main.js)) para mover los planetas a distintas velocidades. |
+| **[`script07`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Jerarquía de pivotes (`Object3D`) y trazado de órbitas. | Organizado en [`planetBuilder.js`](./src/modules/planetBuilder.js) para los pivotes de las 18 lunas y sus líneas orbitales (`LineLoop`). |
+| **[`script08`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Selección de objetos mediante `Raycaster`. | Gestionado en [`raycasterManager.js`](./src/modules/raycasterManager.js) para hacer clic sobre los planetas, soles y la Estrella de la Muerte. |
 | **[`script11`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq) / [`script12`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Luces, sombras y materiales Phong (`bumpMap`, `shininess`). | Iluminación de la escena con sombras en las naves y texturas con relieve en los planetas. |
 | **[`script13`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq) / [`script15`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Carga de texturas y nubes con transparencias (`alphaMap`). | Aplicado en los planetas y el Sol, reutilizando mapas de nubes para ajustar la opacidad. |
-| **[`script16`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Control de cámara tipo vuelo (`FlyControls`). | Implementado en [`src/modules/controlsManager.js`](./src/modules/controlsManager.js) como un controlador de vuelo suave para la X-Wing. |
+| **[`script16`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Control de cámara tipo vuelo (`FlyControls`). | Implementado en [`controlsManager.js`](./src/modules/controlsManager.js) como un controlador de vuelo suave para la X-Wing. |
 
 ---
 
