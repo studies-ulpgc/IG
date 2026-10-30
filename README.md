@@ -205,7 +205,7 @@ En esta sección se detalla la estructura modular de archivos del proyecto y la 
 ├── <a href="./3D_models/">3D_models/</a>                    # Modelos tridimensionales en formato .glb
 │   ├── <a href="./3D_models/death_star.glb">death_star.glb</a>            # Modelo Estrella de la Muerte (Episodio IV)
 │   ├── <a href="./3D_models/death_star_ii.glb">death_star_ii.glb</a>         # Modelo Estrella de la Muerte II (Episodio VI)
-│   ├── <a href="./3D_models/x-wing-fighter.glb">x-wing-fighter.glb</a>                 # Modelo caza estelar X-Wing
+│   ├── <a href="./3D_models/x-wing-fighter.glb">x-wing-fighter.glb</a>        # Modelo caza estelar X-Wing
 │   └── <a href="./3D_models/r2d2.glb">r2d2.glb</a>                  # Modelo androide R2-D2
 ├── <a href="./readme_media/">readme_media/</a>                 # Recursos multimedia de la documentación
 │   ├── <a href="./readme_media/assets/">assets/</a>                   # Logotipo institucional
