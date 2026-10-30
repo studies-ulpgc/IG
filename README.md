@@ -1,5 +1,3 @@
-
-
 <div align="center">
 
 <img src="readme_media/assets/ulpgc.png" alt="Escudo ULPGC" width="160" />
@@ -10,17 +8,15 @@
 
 ---
 
-<!-- Título Principal Estilo Star Wars -->
 <h1 style="color: #FFE81F; font-size: 2.2rem; font-weight: bold; letter-spacing: 4px; text-shadow: 0 0 12px rgba(255, 232, 31, 0.6);">
   SISTEMA GALÁCTICO INTERACTIVO STAR WARS
 </h1>
 
 <h3 style="color: #00FFE1; font-size: 1.1rem; letter-spacing: 2px;">
-  Desarrollado por: <a href="https://github.com/tu-usuario" style="color: #00FFE1; text-decoration: none; font-weight: bold;">Dácil Santana Ortega</a>
+  Desarrollado por: <a href="https://github.com/studies-ulpgc" style="color: #00FFE1; text-decoration: none; font-weight: bold;">Dácil Santana Ortega</a>
 </h3>
 
 ![Three.js](https://img.shields.io/badge/Three.js-v0.152.1-yellow?style=flat-square&logo=three.js)
-![Parcel](https://img.shields.io/badge/Empaquetador-Parcel_v1.6-blue?style=flat-square)
 ![Estado](https://img.shields.io/badge/Estado-Completado_100%25-brightgreen?style=flat-square)
 
 ---
@@ -50,8 +46,6 @@ El presente proyecto consiste en la creación de un **sistema galáctico tridime
 
 La aplicación combina modelado astronómico con mecánicas de simulación interactiva. Permite explorar un sistema planetario completo compuesto por una estrella central, seis planetas principales con sus respectivos satélites, un sistema binario independiente (Tatooine con dos soles y tres lunas) y la estación espacial imperial **Estrella de la Muerte** en dos eras distintas (Episodio IV y Episodio VI).
 
-Todo el código ha sido estructurado siguiendo criterios de modularidad, optimización del bucle de animación e interacción mediante intersección de rayos (*raycasting*) y control cinemático de cámara.
-
 ---
 
 ## 2. Componentes del Sistema Galáctico
@@ -65,7 +59,7 @@ En la siguiente tabla se detallan los elementos gráficos y modelos tridimension
 | **Satélites / Lunas** | 18 lunas distribuidas entre los planetas | Mallas jerárquicas vinculadas a los pivotes de los planetas, con trazado visual de sus órbitas en pantalla. |
 | **Sistema Binario** | Tatooine (2 Soles + 3 Lunas) | Ubicado en coordenadas remotas `(-260, 50, -300)` con rotación propia, tormenta de arena y sistema solar doble. |
 | **Modelos 3D GLTF** | Estrella de la Muerte (Ep. IV / Ep. VI), Caza X-Wing y R2-D2 | Archivos `.glb` cargados dinámicamente mediante `GLTFLoader` desde la carpeta `3D_models/`[^1]. |
-| **Sistemas de Interfaz** | Datapad Horizontal, Modal de Ayuda y Visor R2-D2 | Paneles HTML/CSS superpuestos con un renderizador secundario e independiente para el visor en vivo del androide. |
+| **Sistemas de Interfaz** | Panel de Control, Ventana Flotante de Ayuda y Visor R2-D2 | Paneles HTML/CSS superpuestos con un renderizador secundario e independiente para la vista en directo del androide. |
 
 ---
 
@@ -84,8 +78,8 @@ En este modo de visualización, la cámara orbita libremente alrededor del centr
 https://github.com/user-attachments/assets/3ecd90e3-5b56-4661-a736-08bba8085819
 
 **Funcionalidades mostradas:**
-- **Control orbital libre:** Rotación de cámara en 360°, desplazamiento panorámico y zoom mediante el ratón.
-- **Conmutación de rejilla:** Activación y desactivación en tiempo real del asistente plano (*GridHelper*) desde el botón "Rejilla" del Datapad.
+- **Control orbital libre:** Rotación de cámara en 360°, desplazamiento panorámico y ajuste de distancia.
+- **Conmutación de rejilla:** Activación y desactivación del asistente plano (*GridHelper*) desde el panel de control.
 - **Movimiento orbital:** Traslación elíptica continua e independiente de todos los planetas y satélites.
 
 ---
@@ -101,9 +95,9 @@ https://github.com/user-attachments/assets/7232c754-d72b-4ae2-a820-470d11ca77d5
 
 **Funcionalidades mostradas:**
 - **Barra flotante de resumen:** Muestra el nombre del planeta seleccionado con opciones rápidas de acción.
-- **Ficha técnica detallada ("Más Info"):** Despliega el panel lateral con Lore, Región y Clima del astro, desplazando la barra de resumen para no superponer interfaces.
-- **Visor 3D en vivo de R2-D2:** Renderizado secundario e interactivo del androide en la esquina de la tarjeta informativa.
-- **Navegación secuencial:** Uso de las flechas (`<` y `>`) tanto en la barra flotante como dentro de la propia ficha técnica para saltar directamente entre planetas manteniendo el nivel de detalle seleccionado.
+- **Ficha técnica detallada:** Panel lateral con trasfondo, región y clima del astro.
+- **Visor 3D en directo:** Renderizado secundario del androide R2-D2 en la tarjeta informativa.
+- **Navegación secuencial:** Transición directa entre planetas mediante botones de desplazamiento (`<` y `>`).
 
 ---
 
@@ -114,12 +108,12 @@ Muestra la interacción por proyección de rayos (*raycasting*) para identificar
 > [!NOTE]
 > **Vídeo con audio:** Contiene los efectos sonoros del disparo del superláser y la detonación del astro.
 
-https://github.com/user-attachments/assets/c2f8dfa3-b8a8-4df7-87b0-c48efa6fc217
+https://github.com/user-attachments/assets/b0f72643-0732-4221-98d8-f8164b44dfcc
 
 **Funcionalidades mostradas:**
-- **Inmovilización del objetivo:** Al iniciar la secuencia de disparo, el planeta congelará inmediatamente su movimiento de traslación en el espacio para permitir el impacto directo del rayo.
-- **Identificación de objetivos destructibles:** Los seis planetas principales permiten la orden de disparo tanto desde la barra de resumen como desde la ficha detallada.
-- **Protección de astros especiales:** Objetos como el Sol Central, Tatooine o la propia Estrella de la Muerte muestran su información técnica pero deshabilitan automáticamente el botón de disparo.
+- **Inmovilización del objetivo:** Congelación temporal del movimiento orbital durante el disparo.
+- **Identificación de objetivos destructibles:** Secuencia de disparo aplicable a los seis planetas principales.
+- **Protección de astros especiales:** Deshabilitación de disparo para el Sol Central, Tatooine y la propia estación espacial.
 
 ---
 
@@ -130,8 +124,8 @@ Demostración de la conmutación de modelos tridimensionales en tiempo real para
 https://github.com/user-attachments/assets/348eb0c2-d7de-4275-8d51-31c2cdbaaa69
 
 **Funcionalidades mostradas:**
-- **Intercambio dinámico de geometrías:** Sustitución asíncrona del modelo `.glb` de la Estrella de la Muerte por el modelo de la Estrella de la Muerte II sin reiniciar la escena.
-- **Mantenimiento de la jerarquía de colisiones:** Conservación de los puntos de pivote del superláser y la lógica de proyección de rayos para los disparos tácticos.
+- **Intercambio dinámico de geometrías:** Sustitución asíncrona entre los modelos `.glb` de la Estrella de la Muerte I y II.
+- **Mantenimiento de la jerarquía:** Conservación de los puntos de origen del superláser y la detección de impacto.
 
 ---
 
@@ -142,9 +136,8 @@ Demostración de la gestión de inventario de astros tras ser eliminados de la e
 https://github.com/user-attachments/assets/e29f9b74-e8b7-4193-9584-443b99cc6ccc
 
 **Funcionalidades mostradas:**
-- **Desplegable dinámico:** La lista de selección "Restaurar Planeta" en el Datapad se actualiza automáticamente añadiendo solo los planetas que hayan sido destruidos.
-- **Restauración individual:** Selección y recuperación de un planeta específico, devolviéndolo a su órbita con su visibilidad y movimiento reactivados.
-- **Restauración global:** Botón "Restaurar Todos" que regenera simultáneamente la totalidad de los planetas destruidos del sistema galáctico.
+- **Lista dinámica de selección:** Actualización del desplegable con los astros destruidos.
+- **Restauración individual y global:** Opciones para recuperar planetas específicos o reactivar la totalidad del sistema.
 
 ---
 
@@ -155,10 +148,9 @@ Cambio de perspectiva hacia la vista subjetiva en tercera persona para pilotar l
 https://github.com/user-attachments/assets/fdfa2066-8abf-4432-906c-7f3349a2c45b
 
 **Funcionalidades mostradas:**
-- **Panel de Ayuda (`?`):** Ventana emergente (*modal*) con la guía completa de controles de vuelo (W, A, S, D, Q, E).
-- **Control cinemático:** Movimiento libre en 6 grados de libertad con seguimiento suave de la cámara tras la nave.
-- **Aviso táctico de proximidad (*HUD*):** Sistema de detección por distancia 3D en tiempo real. Muestra `ACERCÁNDOSE A: PLANETA` en espacio abierto, y conmuta al nombre específico en cuanto la nave entra en el radio de detección de cualquier planeta, del Sol Central, de Tatooine o de la Estrella de la Muerte.
-- **Ocultación automática:** El indicador HUD se oculta inmediatamente si el usuario regresa a la Vista General (Órbita).
+- **Guía de controles:** Ventana emergente con instrucciones de vuelo (W, A, S, D, Q, E).
+- **Control cinemático:** Vuelo libre con seguimiento de cámara.
+- **Aviso táctico de proximidad:** Detección por distancia tridimensional en tiempo real al aproximarse a cuerpos celestes.
 
 ---
 
@@ -170,105 +162,93 @@ En esta sección se analiza en detalle la configuración gráfica de los astros 
 
 ### 4.1. Configuración de Materiales e Iluminación
 
-Todos los planetas del sistema utilizan el material `MeshPhongMaterial` para reaccionar a la iluminación de la escena (simulada mediante fuentes direccionales y ambientales). Se han aplicado diferentes mapas gráficos para lograr un acabado realista:
+Todos los planetas del sistema utilizan el material `MeshPhongMaterial` para reaccionar a la iluminación de la escena (simulada mediante fuentes direccionales y ambientales):
 
-- **Mapas de color/difusos (`map`):** Aportan la textura base en alta definición de la superficie planetaria.
-- **Mapas de rugosidad (*bump mapping*, `bumpMap`):** Simulan el relieve tridimensional de cordilleras y cráteres mediante el cálculo de normales, controlado minuciosamente con la propiedad `bumpScale`.
-- **Efecto de emisión térmica (`emissive`):** Aplicado en la superficie de Mustafar con una intensidad de `0.6` para reflejar el calor de la lava sin depender únicamente de las luces externas.
+- **Mapas de color/difusos (`map`):** Textura base de la superficie planetaria.
+- **Mapas de rugosidad (*bump mapping*, `bumpMap`):** Relieve tridimensional simulado mediante cálculo de normales (`bumpScale`).
+- **Efecto de emisión térmica (`emissive`):** Intensidad lumínica propia (`0.6`) aplicada en Mustafar para simular la lava incandescentes.
 
 ---
 
 ### 4.2. Galería Técnica de Astros y Capas Atmosféricas
 
-A continuación se detallan las características visuales específicas de los cuerpos celestes más representativos:
-
-<div align="center">
-
-| astro / Planeta | Vista en Detalle | Configuración Técnica de Capas y Materiales |
+| Astro / Planeta | Vista en Detalle | Configuración Técnica de Capas y Materiales |
 | :--- | :---: | :--- |
-| **Sol Central y Fuego Solar** | <img src="readme_media/shorts/01_sol.gif" width="220" /> | Malla central con textura básica combinada con una segunda esfera concéntrica exterior (`sun_fire`) animada en rotación inversa con transparencia aditiva (`AdditiveBlending`). |
-| **Naboo (Planeta + Lunas)** | <img src="readme_media/shorts/02_naboo.gif" width="220" /> | Superficie con tonos acuáticos, capa de nubes translúcidas (`opacity: 0.35`) y tres satélites en órbitas independientes con sus líneas orbitales trazadas. |
-| **Mustafar (Mundo Volcánico)** | <img src="readme_media/shorts/03_mustafar.gif" width="220" /> | Elevado mapa de rugosidad (`bumpScale: 2.5`), emisión de luz roja en la textura base y una capa especial de **ceniza volcánica** con material `MeshStandardMaterial` de tono oscuro. |
-| **Hoth (Glacial)** | <img src="readme_media/shorts/04_hoth.gif" width="220" /> | Material de alto brillo especular (`shininess: 80`) para simular la reflexión sobre el hielo y nubes tenues de nieve. |
-| **Sistema Binario Tatooine** | <img src="readme_media/shorts/05_tatooine.gif" width="220" /> | Sistema remoto con dos soles (amarillo y rojo), tres lunas en órbita y una capa superior en rotación que simula una **tormenta de arena** global. |
-
-</div>
+| **Sol Central y Fuego Solar** | <img src="readme_media/shorts/01_sol.gif" width="220" /> | Malla central combinada con una segunda esfera concéntrica exterior (`sun_fire`) animada en rotación inversa con transparencia aditiva (`AdditiveBlending`). |
+| **Naboo (Planeta + Lunas)** | <img src="readme_media/shorts/02_naboo.gif" width="220" /> | Superficie acuática, capa de nubes translúcidas (`opacity: 0.35`) y tres satélites en órbitas independientes con sus trayectorias trazadas. |
+| **Mustafar (Mundo Volcánico)** | <img src="readme_media/shorts/03_mustafar.gif" width="220" /> | Mapa de rugosidad elevado (`bumpScale: 2.5`), emisión roja base y capa de ceniza volcánica (`MeshStandardMaterial`). |
+| **Hoth (Glacial)** | <img src="readme_media/shorts/04_hoth.gif" width="220" /> | Brillo especular alto (`shininess: 80`) para simular hielo y capa de nubes de nieve. |
+| **Sistema Binario Tatooine** | <img src="readme_media/shorts/05_tatooine.gif" width="220" /> | Sistema con dos soles, tres lunas y una capa superior en rotación que simula una **tormenta de arena** global. |
 
 ---
 
-### 4.3. Estrategia de Optimización de Capas de Nubes y Comparativa Técnica
+### 4.3. Estrategia de Optimización de Capas de Nubes
 
-Durante las sesiones prácticas de la asignatura, se estudiaron modelos completos como la recreación de la Tierra mediante el uso de hasta **5 mapas de texturas simultáneos** (mapa base, *bumpMap*, mapa especular *specularMap*, mapa de nubes y mapa de transparencia *alphaMap*). 
+Para garantizar un rendimiento fluido en el navegador, se aplicaron las siguientes estrategias de optimización:
 
-Para este proyecto se optó por un enfoque de **optimización de rendimiento y eficiencia en tiempo de ejecución**:
-
-1. **Reutilización inteligente de mapas de transparencia:** En lugar de cargar múltiples archivos de imagen de gran tamaño para cada planeta, se reutilizó una misma textura de mapa alfanumérico de nubes (`earthcloudmaptrans_invert.jpg`) en Naboo, Mustafar y Hoth.
-2. **Diferenciación mediante propiedades de material:** Variando el color base (`color`), la opacidad (`opacity`) y el modo de mezcla (*blend mode*), se obtuvieron resultados visuales completamente distintos manteniendo un consumo de memoria GPU mínimo:
-   - **Naboo:** Nubes blancas tenues con `AdditiveBlending` para fusionarse suavemente con el océano.
-   - **Mustafar:** Nubes de ceniza oscurecidas (`color: 0x111111`) y opacas (`opacity: 0.85`) para simular contaminación volcánica.
-   - **Hoth:** Capa de tormenta de nieve con densidad intermedia (`opacity: 0.4`).
-3. **Pivotes jerárquicos para el movimiento solidario:** Las capas atmosféricas se instancian como hijas (`.add()`) de la malla principal del planeta. Esto garantiza que la rotación diferencial de las nubes sume la velocidad del planeta sin requerir cálculos de coordenadas manuales en cada fotograma.
+1. **Reutilización de mapas de transparencia:** Se empleó la misma textura de nubes (`earthcloudmaptrans_invert.jpg`) en Naboo, Mustafar y Hoth.
+2. **Diferenciación mediante propiedades del material:** Se varió el color (`color`), la opacidad (`opacity`) y la mezcla (*blend mode*) según el planeta:
+   - **Mustafar:** Nubes de ceniza oscurecidas (`color: 0x111111`, `opacity: 0.85`).
+   - **Hoth:** Tormenta de nieve (`opacity: 0.4`).
 
 ---
 
 ## 5. Arquitectura del Proyecto y Comparativa Académica
 
-En esta sección se detalla la estructura modular de archivos del proyecto y se analiza la evolución técnica respecto a las plantillas y scripts de ejemplo proporcionados durante las clases prácticas de la asignatura.
+En esta sección se detalla la estructura modular de archivos del proyecto y la equivalencia técnica respecto a las prácticas realizadas.
 
 ---
 
 ### 5.1. Estructura de Módulos y Organización de Archivos
 
-Para garantizar la escalabilidad y facilitar el mantenimiento del código, la aplicación se ha organizado de forma modular, separando la lógica de renderizado, la construcción geométrica, la física de interacción y los componentes de interfaz:
-
 <pre><code><b>IG_Semana_6_7/</b>
-├── <a href="./3D_models/">3D_models/</a>                    # Archivos de modelos tridimensionales (.glb)
-│   ├── <a href="./3D_models/Death_Star.glb">Death_Star.glb</a>            # Modelo de la Estrella de la Muerte (Episodio IV)
-│   ├── <a href="./3D_models/Death_Star_II.glb">Death_Star_II.glb</a>         # Modelo de la Estrella de la Muerte (Episodio VI)
-│   ├── <a href="./3D_models/XWing.glb">XWing.glb</a>                 # Modelo de la caza estelar X-Wing
-│   └── <a href="./3D_models/R2D2.glb">R2D2.glb</a>                  # Modelo del androide R2-D2 para el visor secundario
-├── <a href="./readme_media/">readme_media/</a>                 # Archivos multimedia para la documentación
-│   ├── <a href="./readme_media/assets/">assets/</a>                   # Recursos estáticos (escudo ULPGC)
-│   ├── <a href="./readme_media/demos/">demos/</a>                    # Vídeos demostrativos en alta definición
-│   └── <a href="./readme_media/shorts/">shorts/</a>                   # Bucles animados cortos (GIFs) de astros y texturas
-├── <a href="./src/">src/</a>                          # Código fuente principal de la aplicación
-│   ├── <a href="./src/assets/textures/">assets/textures/</a>          # Mapas de textura de superficies, soles y nubes
+├── <a href="./3D_models/">3D_models/</a>                     # Modelos tridimensionales en formato .glb
+│   ├── <a href="./3D_models/Death_Star.glb">Death_Star.glb</a>            # Modelo Estrella de la Muerte (Episodio IV)
+│   ├── <a href="./3D_models/Death_Star_II.glb">Death_Star_II.glb</a>         # Modelo Estrella de la Muerte II (Episodio VI)
+│   ├── <a href="./3D_models/XWing.glb">XWing.glb</a>                 # Modelo caza estelar X-Wing
+│   └── <a href="./3D_models/R2D2.glb">R2D2.glb</a>                  # Modelo androide R2-D2
+├── <a href="./readme_media/">readme_media/</a>                 # Recursos multimedia de la documentación
+│   ├── <a href="./readme_media/assets/">assets/</a>                   # Logotipo institucional
+│   ├── <a href="./readme_media/demos/">demos/</a>                    # Vídeos demostrativos
+│   └── <a href="./readme_media/shorts/">shorts/</a>                   # Animaciones en formato GIF
+├── <a href="./src/">src/</a>                          # Código fuente de la aplicación
+│   ├── <a href="./src/assets/textures/">assets/textures/</a>          # Texturas de superficies y nubes
 │   ├── <a href="./src/config/">config/</a>
-│   │   └── <a href="./src/config/planetData.js">planetData.js</a>         # Configuración JSON con la física y datos de cada planeta
+│   │   └── <a href="./src/config/planetData.js">planetData.js</a>         # Datos físicos y de configuración de los astros
 │   ├── <a href="./src/modules/">modules/</a>
-│   │   ├── <a href="./src/modules/controlsManager.js">controlsManager.js</a>    # Controlador de modos de cámara (Órbita y Nave X-Wing)
-│   │   ├── <a href="./src/modules/deathStar.js">deathStar.js</a>          # Gestión de Eras Imperiales y animación del superláser
-│   │   ├── <a href="./src/modules/modelLoader.js">modelLoader.js</a>        # Carga asíncrona de modelos GLTF mediante GLTFLoader
-│   │   ├── <a href="./src/modules/planetBuilder.js">planetBuilder.js</a>      # Creación de geometrías, materiales y trazado de órbitas
-│   │   ├── <a href="./src/modules/r2d2Viewer.js">r2d2Viewer.js</a>         # Renderizador auxiliar independiente para la vista de R2-D2
-│   │   ├── <a href="./src/modules/raycasterManager.js">raycasterManager.js</a>   # Lógica de selección con ratón, pop-ups y HUD táctico
-│   │   └── <a href="./src/modules/sceneSetup.js">sceneSetup.js</a>         # Configuración base de Escena, Cámara, Renderer y Rejilla
-│   ├── <a href="./src/index.html">index.html</a>                # Estructura del DOM, botones, Datapad y modales
-│   ├── <a href="./src/main.js">main.js</a>                   # Módulo principal y bucle de animación (animationLoop)
-│   └── <a href="./src/styles.css">styles.css</a>                # Estilos del Datapad, HUD, modales y botones sci-fi
-├── <a href="./package.json">package.json</a>                  # Dependencias del proyecto (Three.js v0.152.1)
-└── <a href="./README.md">README.md</a>                     # Documentación técnica principal del proyecto
+│   │   ├── <a href="./src/modules/controlsManager.js">controlsManager.js</a>    # Controladores de cámara (Órbita y Nave)
+│   │   ├── <a href="./src/modules/deathStar.js">deathStar.js</a>          # Lógica de la estación imperial y disparo láser
+│   │   ├── <a href="./src/modules/modelLoader.js">modelLoader.js</a>        # Carga asíncrona de modelos 3D
+│   │   ├── <a href="./src/modules/planetBuilder.js">planetBuilder.js</a>      # Construcción de geometrías, materiales y órbitas
+│   │   ├── <a href="./src/modules/r2d2Viewer.js">r2d2Viewer.js</a>         # Renderizador secundario para el visor R2-D2
+│   │   ├── <a href="./src/modules/raycasterManager.js">raycasterManager.js</a>   # Proyección de rayos, interacción y avisos de proximidad
+│   │   └── <a href="./src/modules/sceneSetup.js">sceneSetup.js</a>         # Configuración base de la escena WebGL
+│   ├── <a href="./src/index.html">index.html</a>                # Estructura del documento e interfaz
+│   ├── <a href="./src/main.js">main.js</a>                   # Punto de entrada y bucle principal de animación
+│   └── <a href="./src/styles.css">styles.css</a>                # Hojas de estilo de la interfaz
+├── <a href="./package.json">package.json</a>                  # Configuración del proyecto y dependencias
+└── <a href="./README.md">README.md</a>                     # Documentación principal
 </code></pre>
 
 ---
 
 ### 5.2. Scripts de Clase y Entornos CodeSandbox
 
-A continuación se muestra la correspondencia técnica entre los conceptos enseñados en los entornos de prueba del profesor Modesto Castrillón ([`otsedom`](https://github.com/otsedom)) y su implementación evolucionada en este proyecto:
+Correspondencia técnica entre los ejemplos de clase ([`otsedom`](https://github.com/otsedom)) y su implementación en el proyecto:
 
-- **Entorno CodeSandbox Semana 6:** [ig-s6-xtdjrm](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)
-- **Entorno CodeSandbox Semana 7:** [ig-s7-36r8mq](https://codesandbox.io/p/sandbox/ig-s7-36r8mq?file=%2Fsrc%2Findex.html)
+- **CodeSandbox Semana 6:** [ig-s6-xtdjrm](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)
+- **CodeSandbox Semana 7:** [ig-s7-36r8mq](https://codesandbox.io/p/sandbox/ig-s7-36r8mq?file=%2Fsrc%2Findex.html)
 
-| Script de Referencia | Concepto Académico Base | Implementación Avanzada en el Proyecto |
+| Script de Referencia | Concepto Base | Aplicación en el Proyecto |
 | :--- | :--- | :--- |
-| **`script01` / `script02`** | Creación de grafo de escena (`Scene`), cámara perspectiva, reproductor `WebGLRenderer` y geometrías primitivas (`BoxGeometry`, `SphereGeometry`). | Estructurado de forma limpia dentro del módulo `sceneSetup.js`, configurando sombras, renderizado responsivo y ajuste automático de aspecto de pantalla. |
-| **`script03` / `script04`** | Asistente de referencia espacial `GridHelper` y control de visibilidad en tiempo real mediante eventos DOM de botones (`addEventListener`). | Integrado en el Datapad horizontal mediante el botón "Rejilla", permitiendo conmutar la visibilidad espacial sin interrumpir la animación. |
-| **`script06` / `script07`** | Traslación orbital elíptica basada en funciones trigonométricas (`Math.cos` / `Math.sin`) combinadas con la marca de tiempo `timestamp`. | Aplicado en `main.js` dentro del bucle principal `animationLoop()` para la traslación independiente de todos los planetas con parámetros de velocidad personalizados. |
-| **`script07`** | Jerarquía de transformación padre-hijo mediante pivotes (`Object3D`) para órbitas de satélites y trazado de trayectorias con `EllipseCurve` y `Line`. | Implementado en `planetBuilder.js` creando grupos pivote para las 18 lunas, añadiendo además la función `createSatelliteOrbitLine` con bucles de líneas (`LineLoop`) transparentes. |
-| **`script08`** | Detección de clics en la escena mediante proyección de rayos (`Raycaster`) y conversión de coordenadas del puntero del ratón a espacio normalizado. | Módulo `raycasterManager.js` completo que gestiona la selección precisa de planetas, soles, Tatooine y la Estrella de la Muerte en movimiento, evitando falsos clics al arrastrar la cámara. |
-| **`script11` / `script12`** | Iluminación de escena (`AmbientLight`, `DirectionalLight`), materiales con respuesta a la luz (`MeshPhongMaterial`) y sombras (`castShadow` / `receiveShadow`). | Combinación de fuentes de luz direccionables con sombras proyectadas en los modelos de las naves y materiales con mapas de rugosidad (`bumpMap`) y brillo especular (`shininess`). |
-| **`script13` / `script15`** | Carga de texturas con `TextureLoader`, capas de nubes concéntricas con mapas de opacidad (`alphaMap`) y transparencia aditiva (`AdditiveBlending`). | Utilizado en los 6 planetas principales y en el Sol Central, optimizando la carga en memoria al reutilizar capas atmosféricas con distintas tonalidades y opacidades. |
-| **`script16`** | Control cinemático de cámara en primera persona / vuelo (`FlyControls`) con actualización mediante diferencia de tiempo *delta* (`clock.getDelta()`). | Desarrollo de un controlador personalizado (`CameraController`) en `controlsManager.js` que simula la física de vuelo de la caza X-Wing en 6 grados de libertad con seguimiento suave de cámara. |
+| **`script01` / `script02`** | Grafo de escena, cámara, renderizador y geometrías primitivas. | Configurado en `sceneSetup.js` con soporte para sombras y adaptación a pantalla. |
+| **`script03` / `script04`** | Asistente `GridHelper` y eventos DOM. | Integrado en el panel de control mediante el botón "Rejilla" para alternar su visibilidad. |
+| **`script06` / `script07`** | Traslación orbital elíptica con `Math.cos` / `Math.sin` y marcas de tiempo. | Incluido en el bucle `animationLoop()` (`main.js`) para mover los planetas a distintas velocidades. |
+| **`script07`** | Jerarquía de pivotes (`Object3D`) y trazado de órbitas. | Organizado en `planetBuilder.js` para los pivotes de las 18 lunas y sus líneas orbitales (`LineLoop`). |
+| **`script08`** | Selección de objetos mediante `Raycaster`. | Gestionado en `raycasterManager.js` para hacer clic sobre los planetas, soles y la Estrella de la Muerte. |
+| **`script11` / `script12`** | Luces, sombras y materiales Phong (`bumpMap`, `shininess`). | Iluminación de la escena con sombras en las naves y texturas con relief en los planetas. |
+| **`script13` / `script15`** | Carga de texturas y nubes con transparencias (`alphaMap`). | Aplicado en los planetas y el Sol, reutilizando mapas de nubes para ajustar la opacidad. |
+| **`script16`** | Control de cámara tipo vuelo (`FlyControls`). | Implementado en `controlsManager.js` como un controlador de vuelo suave para la X-Wing. |
 
 ---
 
@@ -280,16 +260,13 @@ A continuación se muestra la correspondencia técnica entre los conceptos ense�
 
 1. **Documentación Oficial de Three.js:** [https://threejs.org/docs/](https://threejs.org/docs/)
 2. **Repositorios del Profesor Modesto Castrillón (`otsedom`):**
-   - Perfil oficial en GitHub: [https://github.com/otsedom](https://github.com/otsedom)
+   - Perfil en GitHub: [https://github.com/otsedom](https://github.com/otsedom)
    - Ejemplos prácticos en CodeSandbox: [Semana 6](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) y [Semana 7](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)
 3. **Discover Three.js:** [https://discoverthreejs.com/](https://discoverthreejs.com/) — Patrones de diseño gráficos en WebGL.
-4. **Learning Three.js (Jos Dirksen):** Referencia sobre iluminación, materiales Phong y mapas de sombras.
 
 ---
 
 ### 6.2. Fuentes de Texturas y Recursos Gráficos
-
-Las texturas utilizadas han sido obtenidas de repositorios artísticos públicos y de las plantillas de la asignatura:
 
 | Recurso / Planeta | Autor / Fuente | Enlace Directo |
 | :--- | :--- | :--- |
@@ -307,8 +284,6 @@ Las texturas utilizadas han sido obtenidas de repositorios artísticos públicos
 
 ### 6.3. Modelos Tridimensionales (`.glb` / `.gltf`)
 
-Los modelos estelares han sido seleccionados desde [Sketchfab](https://sketchfab.com/feed) buscando optimización geométrica y licencias no comerciales:
-
 | Modelo 3D | Archivo Local | Creador / Autor | Enlace en Sketchfab |
 | :--- | :--- | :--- | :--- |
 | **Estrella de la Muerte (Ep. IV)** | [`Death_Star.glb`](./3D_models/Death_Star.glb) | SebastianSosnowski | [Sketchfab - Death Star](https://sketchfab.com/3d-models/death-star-star-wars-3d5f01485e9e4e8b9d995d7764341afe) |
@@ -320,12 +295,12 @@ Los modelos estelares han sido seleccionados desde [Sketchfab](https://sketchfab
 
 ### 6.4. Declaración de Asistencia con Herramientas de Inteligencia Artificial
 
-En cumplimiento de las directrices académicas de la asignatura sobre transparencia en el desarrollo de software, se detalla el uso de modelos de IA (Google Gemini / Anthropic Claude) como asistentes de soporte técnico durante el proyecto:
+Se detallan algunos ejemplos del uso de modelos de IA (Google Gemini) como asistentes de soporte técnico durante el proyecto:
 
 - **Resolución de errores de carga `.glb` y sintaxis Three.js:** [Consulta sobre excepciones en GLTFLoader](https://gemini.google.com/app/0ab6ebc7296cb850?hl=es)
-- **Implementación de efectos sonoros y gestión de modelos estáticos:** [Consulta sobre audios y carga de recursos](https://gemini.google.com/app/703bfed1d764da7d?hl=es)
-- **Diseño de estilos CSS y fuentes personalizadas de Star Wars:** Consultas sobre tipografía y maquetación del Datapad mediante [Búsquedas Asistidas de Google](https://www.google.com/search?q=star+wars+custom+title+download+free).
-- **Refactorización modular:** Asistencia puntual en el comentado de funciones dentro de `main.js` y depuración de la matriz de transformación del superláser.
+- **Implementación de efectos sonoros y gestión de recursos:** [Consulta sobre audios y carga de recursos](https://gemini.google.com/app/703bfed1d764da7d?hl=es)
+- **Diseño de estilos CSS:** Consultas sobre tipografía y maquetación del panel de control mediante [Búsquedas Asistidas de Google](https://www.google.com/search?q=star+wars+custom+title+download+free).
+- **Refactorización modular:** Asistencia puntual en el comentado de funciones en `main.js`, depuración de la matriz de transformación del superláser y dudas de formato multimedia en Markdown.
 
 ---
 
@@ -335,15 +310,15 @@ En cumplimiento de las directrices académicas de la asignatura sobre transparen
 
 | Desarrolladora | Rol | Perfil |
 | :--- | :--- | :---: |
-| **Dácil Santana Ortega** | Autora Principal y Programación | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tu-usuario) |
+| **Dácil Santana Ortega** | Autora Principal y Programación | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/studies-ulpgc) |
 
 ---
 
 *Proyecto desarrollado para la asignatura de **Informática Gráfica** — Grado en Ingeniería Informática (ULPGC).*  
-*Bajo licencia de [Creative Commons Reconocimiento - No Comercial 4.0 Internacional (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.es).*
+*Bajo licencia [Creative Commons Reconocimiento - No Comercial 4.0 Internacional (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.es).*
 
 </div>
 
 ---
 
-[^1]: Todos los modelos `.glb` incluidos en el directorio `3D_models/` han sido seleccionados respetando el límite estricto de GitHub de 25 MB por archivo individual para permitir *commits* y despliegues directos sin requerir extensiones Git LFS.
+[^1]: Todos los modelos `.glb` incluidos en el directorio `3D_models/` respetan el límite de 25 MB por archivo exigido para envíos directos sin requerir extensiones de almacenamiento de archivos grandes.
