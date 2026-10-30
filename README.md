@@ -202,9 +202,9 @@ En esta sección se detalla la estructura modular de archivos del proyecto y la 
 ### 5.1. Estructura de Módulos y Organización de Archivos
 
 <pre><b>IG_Semana_6_7/</b>
-├── <a href="./3D_models/">3D_models/</a>                     # Modelos tridimensionales en formato .glb
+├── <a href="./3D_models/">3D_models/</a>                    # Modelos tridimensionales en formato .glb
 │   ├── <a href="./3D_models/death_star.glb">death_star.glb</a>            # Modelo Estrella de la Muerte (Episodio IV)
-│   ├── <a href="./3D_models/death_star_ii.glb">Death_Star_II.glb</a>         # Modelo Estrella de la Muerte II (Episodio VI)
+│   ├── <a href="./3D_models/death_star_ii.glb">death_star_ii.glb</a>         # Modelo Estrella de la Muerte II (Episodio VI)
 │   ├── <a href="./3D_models/x-wing-fighter.glb">x-wing-fighter.glb</a>                 # Modelo caza estelar X-Wing
 │   └── <a href="./3D_models/r2d2.glb">r2d2.glb</a>                  # Modelo androide R2-D2
 ├── <a href="./readme_media/">readme_media/</a>                 # Recursos multimedia de la documentación
@@ -245,7 +245,7 @@ Correspondencia técnica entre los ejemplos de clase ([`otsedom`](https://github
 | **[`script03`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script04`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Asistente `GridHelper` y eventos DOM. | Integrado en el panel de control mediante el botón "Rejilla" para alternar su visibilidad. |
 | **[`script06`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm) / [`script07`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Traslación orbital elíptica con `Math.cos` / `Math.sin` y marcas de tiempo. | Incluido en el bucle `animationLoop()` ([`src/main.js`](./src/main.js)) para mover los planetas a distintas velocidades. |
 | **[`script07`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Jerarquía de pivotes (`Object3D`) y trazado de órbitas. | Organizado en [`src/modules/planetBuilder.js`](./src/modules/planetBuilder.js) para los pivotes de las 18 lunas y sus líneas orbitales (`LineLoop`). |
-| **[`script08`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Selección de objetos mediante `Raycaster`. | Gestionado en [`src/modules/raycasterManager.js`](./src/modules/raycasterManager.js) para hacer clic sobre los planetas, soles y la Estrella de la Muerte. |
+| **[`script08`](https://codesandbox.io/p/sandbox/ig-s6-xtdjrm)** | Selección de objetos mediante `Raycaster`. | Gestionado en [`src/modules/raycasterManager.js`](./src/modules/raycasterManager.js) para hacer clic sobre los planetas, soles y la Estrella de la Muerte. |
 | **[`script11`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq) / [`script12`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Luces, sombras y materiales Phong (`bumpMap`, `shininess`). | Iluminación de la escena con sombras en las naves y texturas con relieve en los planetas. |
 | **[`script13`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq) / [`script15`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Carga de texturas y nubes con transparencias (`alphaMap`). | Aplicado en los planetas y el Sol, reutilizando mapas de nubes para ajustar la opacidad. |
 | **[`script16`](https://codesandbox.io/p/sandbox/ig-s7-36r8mq)** | Control de cámara tipo vuelo (`FlyControls`). | Implementado en [`src/modules/controlsManager.js`](./src/modules/controlsManager.js) como un controlador de vuelo suave para la X-Wing. |
